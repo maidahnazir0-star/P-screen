@@ -1,0 +1,258 @@
+:root {
+  --bg: #000;
+  --card: #111;
+  --text: #f5f5f5;
+  --muted: #a1a1a1;
+  --border: #2a2a2a;
+  --accent: #0095f6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  display: grid;
+  place-items: center;
+}
+
+.app {
+  width: min(430px, 100%);
+  min-height: 100vh;
+  padding: 14px;
+  background: var(--bg);
+}
+
+.top-bar,
+.profile-overview,
+.action-row,
+.highlights,
+.tabs {
+  display: flex;
+  align-items: center;
+}
+
+.top-bar {
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.top-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.username {
+  font-size: 1.15rem;
+  margin: 0;
+  flex: 1;
+  text-align: center;
+}
+
+.icon-btn,
+.stat-btn,
+.highlight,
+.tab,
+.primary-btn,
+.secondary-btn {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.icon-btn {
+  font-size: 1.2rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+}
+
+.icon-btn:hover,
+.tab:hover,
+.stat-btn:hover {
+  background: #191919;
+}
+
+.profile-overview {
+  margin-top: 24px;
+  gap: 24px;
+}
+
+.avatar {
+  width: 86px;
+  height: 86px;
+  border: 2px solid #444;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  background: radial-gradient(circle at 30% 30%, #ffcc70, #a336f0);
+}
+
+.stats {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.stat-btn {
+  border-radius: 10px;
+  padding: 8px 4px;
+  display: grid;
+  gap: 2px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.stat-btn span {
+  color: var(--text);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.bio {
+  margin-top: 14px;
+}
+
+.bio h2,
+.bio p {
+  margin: 0;
+}
+
+.bio p {
+  margin-top: 3px;
+}
+
+.bio a {
+  color: #cde6ff;
+  text-decoration: none;
+  font-size: 0.92rem;
+}
+
+.action-row {
+  margin-top: 16px;
+  gap: 8px;
+}
+
+.primary-btn,
+.secondary-btn {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-weight: 600;
+}
+
+.primary-btn {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+  flex: 1.1;
+}
+
+.secondary-btn {
+  background: var(--card);
+  flex: 1;
+}
+
+.bordered {
+  border: 1px solid var(--border);
+  background: var(--card);
+}
+
+.highlights {
+  margin-top: 18px;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.highlight {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  min-width: 64px;
+}
+
+.highlight-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 1px solid #5c5c5c;
+  display: grid;
+  place-items: center;
+  font-size: 1.3rem;
+  background: #171717;
+}
+
+.highlight small {
+  color: var(--muted);
+}
+
+.tabs {
+  margin-top: 14px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.tab {
+  flex: 1;
+  padding: 12px;
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+
+.tab.active {
+  color: var(--text);
+  box-shadow: inset 0 -2px 0 var(--text);
+}
+
+.content {
+  padding-top: 10px;
+}
+
+.panel {
+  display: none;
+}
+
+.panel.active {
+  display: block;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.post {
+  aspect-ratio: 1;
+  border-radius: 2px;
+  background: linear-gradient(135deg, #303030, #666);
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%) translateY(20px);
+  background: #1f1f1f;
+  border: 1px solid #3b3b3b;
+  border-radius: 8px;
+  padding: 10px 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.2s ease;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
